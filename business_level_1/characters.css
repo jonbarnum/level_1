@@ -1,0 +1,58 @@
+    body{
+    background: #55E4E6;
+    font-family: 'MedievalSharp', cursive;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+#navBar{
+    text-align: right;
+}
+
+#characters{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2{
+    font-size: 35px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#heroes{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.heroNames{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+.images{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}
+
+#villians{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.villianNames{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h4{
+    text-align: center;
+}

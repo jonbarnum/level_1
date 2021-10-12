@@ -1,0 +1,44 @@
+body{
+    background: #55E4E6;
+    font-family: 'MedievalSharp', cursive;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+#navBar{
+    text-align: center;
+}
+
+#merchBox{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+h2{
+    text-align: center;
+}
+
+#merch{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 20% 20% 20% ;
+}
+
+.images{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+}
+
+.links{
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h4{
+    text-align: right;
+}
