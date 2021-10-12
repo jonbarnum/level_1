@@ -1,0 +1,277 @@
+#grid_container1{
+    display: grid;
+    grid-template-columns: 4;
+    grid-template-rows: 3;
+    gap: 10px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+#box1{
+    background: #7849A3;
+    grid-column: 1 / 3;
+    border-radius: 20px;
+}
+
+#box2{
+    background: #83F2C7;
+    grid-column: 3 / 5;
+    border-radius: 20px;
+}
+
+#box3{
+    background: #29A373;
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    border-radius: 20px;
+}
+
+#box4{
+    background: #AA60F0;
+    grid-row: 2 / 3;
+    grid-column: 2 / 5;
+    border-radius: 20px;
+}
+
+#box5{
+    background: #5598F0;
+    grid-row: 3 / 4;
+    grid-column: 1 / 5;
+    border-radius: 20px;
+}
+
+#grid_container2{
+    display: grid;
+    grid-template-columns: 4;
+    grid-template-rows: 3;
+    gap: 10px;
+    height: 600px;
+}
+
+#box1-1{
+    background: #7AFF58;
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+    border-radius: 20px;
+}
+
+#box2-2{
+    background: #335AFF;
+    grid-column: 1 / 3;
+    grid-row: 2 / 4;
+    border-radius: 20px;
+}
+
+#box3-3{
+    background: #B36C2D;
+    grid-column: 3 / 5;
+    grid-row: 2 / 3;
+    border-radius: 20px;
+}
+
+#box4-4{
+    background: #5063B3;
+    grid-column: 3 / 4;
+    grid-row: 3 / 4;
+    border-radius: 20px;
+}
+
+#box5-5{
+    background: #5063B3;
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    border-radius: 20px;
+}
+
+@media only screen and (max-width: 1300px){
+    #grid_container1{
+        display: grid;
+        grid-template-columns: 4;
+        grid-template-rows: 3;
+    }
+
+    #box1{
+        grid-column: 1 / 5;
+    }
+
+    #box2{
+        grid-column: 1 / 2;
+        grid-row: 2/ 3;
+        padding: 25px;
+    }
+
+    #box3{
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+    }
+
+    #box4{
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+
+    #grid_container2{
+        display: grid;
+        grid-template-columns: 4;
+        grid-template-rows: 3;
+        height: 300px;
+    }
+
+    #box1-1{
+        grid-column: 1 / 5;
+    }
+
+    #box2-2{
+        grid-column: 1 / 2;
+        grid-row: 2/ 3;
+        padding: 25px;
+    }
+
+    #box3-3{
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+    }
+
+    #box4-4{
+        grid-column: 4 / 5;
+        grid-row: 2 / 3;
+    }
+
+    #box5-5{
+        grid-column: 1 / 5;
+    }
+
+}
+
+@media only screen and (max-width: 1024px){
+    #grid_container1{
+        display: grid;
+        grid-template-columns: 4;
+        grid-template-rows: 4;
+    }
+
+    #box1{
+        grid-column: 1 / 5;
+    }
+
+    #box2{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding: 25px;
+    }
+
+    #box3{
+        grid-column: 2 / 5;
+        grid-row: 2 / 3;
+        padding: 25px;
+    }
+
+    #box4{
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+    }
+
+    #box5{
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+
+    #grid_container2{
+        display: grid;
+        grid-template-columns: 4;
+        grid-template-rows: 4;
+        height: 300px;
+    }
+
+    #box1-1{
+        grid-column: 1 / 5;
+    }
+
+    #box2-2{
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        padding: 25px;
+    }
+
+    #box3-3{
+        grid-column: 2 / 5;
+        grid-row: 2 / 3;
+        padding: 25px;
+    }
+
+    #box4-4{
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+    }
+
+    #box5-5{
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+
+}
+
+@media only screen and (max-width: 780px){
+    #grid_container{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 5;
+    }
+
+    #box1{
+        grid-column: 1 /5;
+    }
+    #box2{
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+    }
+
+    #box3{
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+        padding: 25px;
+    }
+
+    #box4{
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+
+    #box5{
+        grid-column: 1 / 5;
+        grid-row: 5 / 6;
+    }
+
+    #grid_container2{
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 5;
+        height: 300px;
+    }
+
+    #box1-1{
+        grid-column: 1 /5;
+    }
+
+    #box2-2{
+        grid-column: 1 / 5;
+        grid-row: 2 / 3;
+    }
+
+    #box3-3{
+        grid-column: 1 / 5;
+        grid-row: 3 / 4;
+        padding: 25px;
+    }
+
+    #box4-4{
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+
+    #box5-5{
+        grid-column: 1 / 5;
+        grid-row: 5 / 6;
+    }
+
+}
