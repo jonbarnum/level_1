@@ -2,6 +2,10 @@
 
 let headerText = document.getElementById('header');
 
+// pratice
+// let h1 = document.createElement("h1").innerHTML = 'hello';
+// headerText.append(h1); 
+
 headerText.innerHTML = '<h1 id"textForHeader">JavaScript made this!!!</h1> <div id="divText"> <h3 id="name">Jon</h3> <h3 id"textAfterName">wrote this JavaScript</h3></div>';
 
 // using JS to make css changes to header
