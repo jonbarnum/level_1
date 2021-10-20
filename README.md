@@ -19,3 +19,5 @@ https://jonbarnum.github.io/level_1/moms-shopping-list-start/
 https://jonbarnum.github.io/level_1/loops_arrays_practice/
 
 https://jonbarnum.github.io/level_1/loop_olympics/
+
+https://jonbarnum.github.io/level_1/array_method_exercise/
