@@ -23,3 +23,5 @@ https://jonbarnum.github.io/level_1/loop_olympics/
 https://jonbarnum.github.io/level_1/array_method_exercise/
 
 https://jonbarnum.github.io/level_1/forception/
+
+https://jonbarnum.github.io/level_1/string_methods_exercise/
