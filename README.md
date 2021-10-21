@@ -27,3 +27,5 @@ https://jonbarnum.github.io/level_1/forception/
 https://jonbarnum.github.io/level_1/string_methods_exercise/
 
 https://jonbarnum.github.io/level_1/employee_record_exercise/
+
+https://jonbarnum.github.io/level_1/bugs-on-a-plane/
