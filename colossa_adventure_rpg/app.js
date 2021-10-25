@@ -12,6 +12,10 @@ let heroArr = [];
 let heroAttach = Math.floor(Math.random() * 25) + 1;
 let enemyAttach = Math.floor(Math.random() * 25) + 1;
 let playerStats = 'P';
+let fight = 'F';
+let run = 'R';
+let escapeChance = Math.floor(Math.random() *2 ) + 1;
+
 
 let greeting = function (){
     userName = prompt('What is your name');
@@ -93,10 +97,49 @@ let askQuestionAgainWalkOrDie = function(){
     }
 }
 
+
+let chanceOfEscape = function(){
+    if (escapeChance == 2){
+        alert(`Oh Noooo. ${userName} the monster caught up to you due to your poor cardio endurance and now you have to fight`)
+        fightMonsters();
+    } else{
+        alert(`${userName} that monster was so slow you were able to out run the monster. Good job`)
+        walking();
+    }
+}
+
+
+let fightMonsters = function(){
+    console.log('Prepare to die');
+}
+
+let runAway = function(){
+    console.log('see you later');
+}
+
+let fightOrRunAwayQuestion = function(){
+    let fightOrRunQuestion = prompt('please press F or R');
+    if(fightOrRunQuestion == fight.toLowerCase()){
+        fightMonsters();
+    } else if (fightOrRunQuestion == run.toLowerCase()){
+        runAway();
+    }else {
+        fightOrRunAwayQuestion();
+    }
+}
+
 let numberRandomizer = function(){
     let number = Math.floor(Math.random() * 4) + 1;
     if (number == 4){
-        console.log(`oh no ${userName}, you ran into ${randomEnemySelector.name}. Do you want to fight or run`)
+        let fightingPrompt = prompt(`${userName}, you encountered ${randomEnemySelector.name}!!! Do you want to fight or run? Press F to fight and R to fun`)
+        if (fightingPrompt == fight.toLowerCase()){
+            fightMonsters();
+        } else if (fightingPrompt == run.toLowerCase()){
+            chanceOfEscape();
+            // runAway();
+        } else{
+            fightOrRunAwayQuestion();
+        }
     } else {
         walking();
     }
