@@ -14,7 +14,7 @@ let playerStats = 'P';
 let fight = 'F';
 let run = 'R';
 let escapeChance = Math.floor(Math.random() *2 ) + 1;
-let bonusHp = Math.floor(Math.random() * 50) + 1;
+let bonusHp = Math.floor(Math.random() * 30) + 1;
 let walkingCounter = 0;
 
 let greeting = function (){
@@ -67,14 +67,20 @@ let playableMonster = function(){
 }
 playableMonster();
 
-
-let randomEnemySelector = monstersArr[Math.floor(Math.random() * monstersArr.length)];
+let randomEnemy;
+let randomMonsterChooser = function(){
+    randomEnemy = monstersArr[Math.floor(Math.random() * monstersArr.length)];
+}
 // alert(`Be careful where you walk. You could meet ${monsterOne.name}, ${monsterTwo.name}, ${monsterThree.name}, ${monsterFour.name}, or ${monsterFive.name}. All of these monsters want to end your life...`);
+
+let incrementCounter = function(){
+    walkingCounter += 1
+}
 
 let playAgain = function(){
     let question = prompt(playAgainQuestion);
     if (question == yes.toLowerCase()){
-        walking();
+        alert(`too bad... you died, no do overs in life`);
     } else if (question == no.toLowerCase()){
         alert(gameOverMessage);
     } else {
@@ -82,6 +88,9 @@ let playAgain = function(){
     }
 }
 
+let youWin = function(){
+    alert(`Behold ${userName}, you have the bravest heart and a spirit of a lion. You made it out of the forest to which you now enjoy the rest of your days in peace.`);
+}
 
 let askQuestionAgainWalkOrDie = function(){
     let askQuestion = prompt("Your options are 'W' or 'D'");
@@ -108,13 +117,13 @@ let chanceOfEscape = function(){
 
 
 let fightMonsters = function(){
-    while((heroOne.hp > 0) && (randomEnemySelector.hp > 0)){
-        randomEnemySelector.hp = randomEnemySelector.hp - heroAttach;
+    while((heroOne.hp > 0) && (randomEnemy.hp > 0)){
+        randomEnemy.hp = randomEnemy.hp - heroAttach;
         heroOne.hp = heroOne.hp - enemyAttach;
     }
-    if (randomEnemySelector.hp <= 0){
-        alert(`You barely survived that attack. You have cuts all over your body which blood pours out. You are weak and nigh unto death. However, you received ${randomEnemySelector.specialItem} from the monster and some of your health regained. Onward ${userName} and fight again until you are able to leave the forest.`);
-        heroOne.addItem(randomEnemySelector.specialItem);
+    if (randomEnemy.hp <= 0){
+        alert(`You barely survived that attack. You have cuts all over your body which blood pours out. You are weak and nigh unto death. However, you received ${randomEnemy.specialItem} from the monster and some of your health regained. Onward ${userName} and fight again until you are able to leave the forest.`);
+        heroOne.addItem(randomEnemy.specialItem);
         heroOne.hp = heroOne.hp + bonusHp;
         walking();
     } else {
@@ -123,22 +132,6 @@ let fightMonsters = function(){
 }
 
 
-// let fightMonsters = function(){
-//     randomEnemySelector.hp = randomEnemySelector.hp - heroAttach;
-//     heroOne.hp = heroOne.hp - enemyAttach;
-//     if ((heroOne.hp > 0) && (randomEnemySelector.hp > 0)){
-//         fightMonsters();
-//     } else {
-//         if (randomEnemySelector.hp <= 0){
-//             alert(`You barely survived that attack. You have cuts all over your body which blood pours out. You are weak and nigh unto death. However, you received ${randomEnemySelector.specialItem} from the monster and some of your health regained. Onward ${userName} and fight again until you are able to leave the forest.`);
-//             heroOne.addItem(randomEnemySelector.specialItem);
-//             heroOne.hp = heroOne.hp + bonusHp;
-//             walking();    
-//         } else {
-//             alert(death);
-//         }
-//     }
-// }
 
 let runAway = function(){
     alert('You escaped the monster this time but you must continue your journey to leave this wretched forest.');
@@ -159,7 +152,8 @@ let fightOrRunAwayQuestion = function(){
 let numberRandomizer = function(){
     let number = Math.floor(Math.random() * 4) + 1;
     if (number == 4){
-        let fightingPrompt = prompt(`${userName}, you encountered ${randomEnemySelector.name}!!! Do you want to fight or run? Press F to fight and R to run`)
+        randomMonsterChooser();
+        let fightingPrompt = prompt(`${userName}, you encountered ${randomEnemy.name}!!! Do you want to fight or run? Press F to fight and R to run`)
         if (fightingPrompt == fight.toLowerCase()){
             fightMonsters();
         } else if (fightingPrompt == run.toLowerCase()){
@@ -175,37 +169,54 @@ let numberRandomizer = function(){
 
 let walking = function(){
     let question = prompt(whatDoYouWantToDo);
-    if (question == walk.toLowerCase()){
+    incrementCounter();
+    if (walkingCounter == 20){
+        youWin();
+    } else if (question == walk.toLowerCase()){
         numberRandomizer();
-        // walkingCounter += 1;
-        // if (walkingCounter == 20){
-        //     console.log(`Behold ${userName}, you have the bravest heart and a spirit of a lion. You made it out of the forest to which you now enjoy the rest of your days in peace.`)
-        // }
     } else if (question == stopWalking.toLowerCase()){
-        alert(death);
-        playAgain();
-    } else if (question == playerStats.toLowerCase()){
-                alert(`Adventurer Name: ${heroOne.name}, hp: ${heroOne.hp}, Special Items: ${heroOne.specialItems}`);
+            alert(death);
+            playAgain();
+        } else if (question == playerStats.toLowerCase()){
+            alert(`Adventurer Name: ${heroOne.name}, hp: ${heroOne.hp}, Special Items: ${heroOne.specialItems}`);
             walking();
-    } else {
-        alert('you didnt push the right button');
-        askQuestionAgainWalkOrDie();
+        } else {
+            alert('you didnt push the right button');
+            askQuestionAgainWalkOrDie();
+        }
     }
-}
+    
+    walking();
+    
+    
+    
+    
+    // let fightMonsters = function(){
+    //     randomEnemy.hp = randomEnemy.hp - heroAttach;
+    //     heroOne.hp = heroOne.hp - enemyAttach;
+    //     if ((heroOne.hp > 0) && (randomEnemy.hp > 0)){
+    //         fightMonsters();
+    //     } else {
+    //         if (randomEnemy.hp <= 0){
+    //             alert(`You barely survived that attack. You have cuts all over your body which blood pours out. You are weak and nigh unto death. However, you received ${randomEnemy.specialItem} from the monster and some of your health regained. Onward ${userName} and fight again until you are able to leave the forest.`);
+    //             heroOne.addItem(randomEnemy.specialItem);
+    //             heroOne.hp = heroOne.hp + bonusHp;
+    //             walking();    
+    //         } else {
+    //             alert(death);
+    //         }
+    //     }
+    // }
 
-// walking();
 
-
-
-
-// let sum = function(x , y){
-    //     return x + y;
-// }
-
-// console.log(sum(2, 4))
-// console.log(sum(10, 10))
-
-// let twentyFour = sum(12 , 12);
-// console.log(twentyFour);
-
+    // let sum = function(x , y){
+        //     return x + y;
+        // }
+        
+        // console.log(sum(2, 4))
+        // console.log(sum(10, 10))
+        
+        // let twentyFour = sum(12 , 12);
+        // console.log(twentyFour);
+        
 // console.log(sum(twentyFour, 2))
