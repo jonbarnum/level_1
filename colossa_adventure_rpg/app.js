@@ -79,11 +79,15 @@ let incrementCounter = function(){
     walkingCounter += 1
 }
 
+let decrementCounter = function(){
+    walkingCounter -= 1
+}
+
 let playAgain = function(){
     let question = readlineSync.question(playAgainQuestion);
-    if (question == yes.toLowerCase()){
+    if (question === yes.toLowerCase()){
         readlineSync.keyInPause(`too bad... you died, no do overs in life`);
-    } else if (question == no.toLowerCase()){
+    } else if (question === no.toLowerCase()){
         readlineSync.keyInPause(gameOverMessage);
     } else {
         playAgain();
@@ -96,9 +100,9 @@ let youWin = function(){
 
 let askQuestionAgainWalkOrDie = function(){
     let askQuestion = readlineSync.question("Your options are 'W' or 'D'");
-    if (askQuestion == walk.toLowerCase()){
+    if (askQuestion === walk.toLowerCase()){
         walking();
-    } else if (askQuestion == stopWalking.toLowerCase()){
+    } else if (askQuestion === stopWalking.toLowerCase()){
         readlineSync.keyInPause(gameOverMessage)
         playAgain();
     } else{
@@ -108,7 +112,7 @@ let askQuestionAgainWalkOrDie = function(){
 
 
 let chanceOfEscape = function(){
-    if (escapeChance == 2){
+    if (escapeChance === 2){
         readlineSync.keyInPause(`Oh Noooo. ${userName} the monster caught up to you due to your poor cardio endurance and now you have to fight`)
         fightMonsters();
     } else{
@@ -142,9 +146,9 @@ let runAway = function(){
 
 let fightOrRunAwayQuestion = function(){
     let fightOrRunQuestion = readlineSync.keyInPause('please press F or R');
-    if(fightOrRunQuestion == fight.toLowerCase()){
+    if(fightOrRunQuestion === fight.toLowerCase()){
         fightMonsters();
-    } else if (fightOrRunQuestion == run.toLowerCase()){
+    } else if (fightOrRunQuestion === run.toLowerCase()){
         runAway();
     }else {
         fightOrRunAwayQuestion();
@@ -153,12 +157,12 @@ let fightOrRunAwayQuestion = function(){
 
 let numberRandomizer = function(){
     let number = Math.floor(Math.random() * 4) + 1;
-    if (number == 4){
+    if (number === 4){
         randomMonsterChooser();
         let fightingPrompt = readlineSync.question(`${userName}, you encountered ${randomEnemy.name}!!! Do you want to fight or run? Press F to fight and R to run`)
-        if (fightingPrompt == fight.toLowerCase()){
+        if (fightingPrompt === fight.toLowerCase()){
             fightMonsters();
-        } else if (fightingPrompt == run.toLowerCase()){
+        } else if (fightingPrompt === run.toLowerCase()){
             chanceOfEscape();
         } else{
             fightOrRunAwayQuestion();
@@ -171,23 +175,22 @@ let numberRandomizer = function(){
 
 let walking = function(){
     let question = readlineSync.question(whatDoYouWantToDo);
-    incrementCounter();
-    if (walkingCounter == 20){
+    if (walkingCounter === 19){
         youWin();
-    } else if (question == walk.toLowerCase()){
+    } else if (question === walk.toLowerCase()){
+        incrementCounter();
         numberRandomizer();
-    } else if (question == stopWalking.toLowerCase()){
+    } else if (question === stopWalking.toLowerCase()){
             readlineSync.keyInPause(death);
             playAgain();
-        } else if (question == playerStats.toLowerCase()){
+        } else if (question === playerStats.toLowerCase()){
             readlineSync.keyInPause(`Adventurer Name: ${heroOne.name}, hp: ${heroOne.hp}, Special Items: ${heroOne.specialItems}`);
             walking();
         } else {
         readlineSync.keyInPause('you didnt push the right button');
-            askQuestionAgainWalkOrDie();
+        askQuestionAgainWalkOrDie();
         }
     }
-    
     walking();
     
     
